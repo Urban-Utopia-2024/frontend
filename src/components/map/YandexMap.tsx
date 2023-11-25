@@ -56,6 +56,8 @@ const YandexMap: React.FC<{ category: number[] }> = ({ category }) => {
           options={{
             preset: iconPreset,
             // iconContentLayout: {},
+            iconLayout: 'default#image',
+            iconImageHref: 'path/img',
           }}
         />
       ))}

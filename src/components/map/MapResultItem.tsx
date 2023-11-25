@@ -4,14 +4,14 @@ interface Props {
   title: string;
   colorText?: string;
   tags?: string[];
-  catagory?: string;
+  category?: string;
   description?: string;
 }
 
 const MapResultItem: React.FC<Props> = ({
   title,
   tags,
-  catagory,
+  category,
   colorText = 'text-amber-500',
   description,
 }) => {
@@ -28,8 +28,8 @@ const MapResultItem: React.FC<Props> = ({
           </>
         )}
 
-        {catagory && (
-          <p className="text-xs font-bold text-gray-500">{catagory}</p>
+        {category && (
+          <p className="text-xs font-bold text-gray-500">{category}</p>
         )}
       </div>
 

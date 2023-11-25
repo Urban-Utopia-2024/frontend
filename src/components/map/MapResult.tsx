@@ -60,7 +60,7 @@ const MapResult = () => {
             key={res.id}
             title={res.title}
             tags={res.tags}
-            catagory={res.category}
+            category={res.category}
             description={res.description}
             colorText={res.colorText}
           />
