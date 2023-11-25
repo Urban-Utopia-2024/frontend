@@ -12,13 +12,13 @@ function Header() {
           <Logo />
         </Link>
         <nav className="flex max-w-[49.5rem] items-center justify-center gap-[3.75rem] text-lg">
-          <Link to={`${Routes.MAP}`}>
+          <Link to={Routes.MAP}>
             <p>Карта</p>
           </Link>
-          <Link to={`${Routes.NEWS}`}>
+          <Link to={Routes.NEWS}>
             <p>Новости</p>
           </Link>
-          <Link to={`${Routes.REQUESTS}`}>
+          <Link to={Routes.REQUESTS}>
             <p>Заявки</p>
           </Link>
         </nav>
