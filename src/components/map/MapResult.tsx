@@ -1,4 +1,3 @@
-import React from 'react';
 import MapResultItem from './MapResultItem';
 
 const MapResult = () => {
