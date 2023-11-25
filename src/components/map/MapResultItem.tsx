@@ -33,7 +33,7 @@ const MapResultItem: React.FC<Props> = ({
         )}
       </div>
 
-      <p className="mb-1 truncate text-sm font-bold">{title}</p>
+      <p className="mb-1 max-w-[300px] truncate text-sm font-bold">{title}</p>
 
       {description && <p className="text-sm">{description}</p>}
     </button>
