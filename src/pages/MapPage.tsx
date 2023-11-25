@@ -2,10 +2,10 @@ import { SearchOutlined } from '@ant-design/icons';
 import { YMaps } from '@pbe/react-yandex-maps';
 import { Button, Input } from 'antd';
 import React from 'react';
-import WorkIcon from '../assets/icons/WorkIcon';
-import { CategoryType } from '../types/enum';
-import YandexMap from '../components/map/YandexMap';
+import { ActivityIcon, TechIcon, TrashIcon, WorkIcon } from '../assets';
 import MapResult from '../components/map/MapResult';
+import YandexMap from '../components/map/YandexMap';
+import { CategoryType } from '../types/enum';
 
 function MapPage() {
   // Все выбранные категории
@@ -27,19 +27,19 @@ function MapPage() {
     {
       id: CategoryType.INCIDENT,
       name: 'Аварии',
-      icon: <WorkIcon />,
+      icon: <TechIcon />,
       color: 'bg-red-200',
     },
     {
       id: CategoryType.EVENT,
       name: 'Активности',
-      icon: <WorkIcon />,
+      icon: <ActivityIcon />,
       color: 'bg-blue-100',
     },
     {
       id: CategoryType.TRASH,
       name: 'Мусорки',
-      icon: <WorkIcon />,
+      icon: <TrashIcon />,
       color: 'bg-violet-100',
     },
   ];
@@ -68,7 +68,7 @@ function MapPage() {
             </h2>
 
             {/* Категории */}
-            <div className="mb-6 flex flex-wrap">
+            <div className="-ml-2 mb-6 flex flex-wrap">
               {categories.map((cat) => (
                 <Button
                   key={cat.id}
@@ -81,7 +81,7 @@ function MapPage() {
                       selectedCategories.includes(cat.id)
                         ? cat.color
                         : 'bg-gray-200'
-                    } mb-1 flex h-12 w-[48px] items-center justify-center rounded-lg p-2`}
+                    } mb-1 flex min-h-[48px] w-[48px] items-center justify-center rounded-lg p-2`}
                   >
                     {cat.icon}
                   </div>
