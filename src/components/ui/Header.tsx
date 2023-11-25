@@ -9,7 +9,7 @@ function Header() {
       <Link to="/">
         <Logo />
       </Link>
-      <Button className="my-[12.5px] flex h-12 w-40 items-center justify-center gap-2 rounded-full border-none bg-amber-200 text-lg font-bold hover:text-gray-950 md:mx-8">
+      <Button className="my-[12.5px] flex h-12 w-40 items-center justify-center gap-2 rounded-full border-none bg-amber-200 text-lg font-bold hover:bg-amber-300 hover:text-gray-950 md:mx-8">
         Войти
         <LoginIcon />
       </Button>
