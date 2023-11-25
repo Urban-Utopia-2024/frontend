@@ -10,9 +10,12 @@ import { Category } from '../types';
 
 function MapPage() {
   // Центр карты
-  const [mapCenter] = React.useState<[number, number]>([
+  const [mapCenter, setMapCenter] = React.useState<[number, number]>([
     56.8331934833199, 60.61239460156242,
   ]);
+
+  // Зум карты
+  const [mapZoom, setMapZoom] = React.useState<number>(10);
 
   // Все выбранные категории
   const categories: Category[] = [
@@ -192,9 +195,17 @@ function MapPage() {
           </div>
 
           {/* Результаты */}
-          <MapResult categories={selectedCategories} />
+          <MapResult
+            categories={selectedCategories}
+            setMapCenter={setMapCenter}
+            setMapZoom={setMapZoom}
+          />
         </div>
-        <YandexMap categories={selectedCategories} mapCenter={mapCenter} />
+        <YandexMap
+          categories={selectedCategories}
+          mapCenter={mapCenter}
+          mapZoom={mapZoom}
+        />
       </div>
     </YMaps>
   );

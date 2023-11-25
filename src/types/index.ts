@@ -6,7 +6,7 @@ export interface EventMap {
   tags?: string[];
   category?: string;
   description?: string;
-  coords: number[];
+  coords: [number, number];
   colorText?: string;
 }
 

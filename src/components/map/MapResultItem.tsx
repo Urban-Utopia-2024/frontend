@@ -6,6 +6,7 @@ interface Props {
   tags?: string[];
   category?: string;
   description?: string;
+  onClick?: () => void;
 }
 
 const MapResultItem: React.FC<Props> = ({
@@ -14,9 +15,13 @@ const MapResultItem: React.FC<Props> = ({
   category,
   colorText = 'text-amber-500',
   description,
+  onClick,
 }) => {
   return (
-    <button className="border-g-200 flex flex-col border-b border-t bg-transparent p-4">
+    <button
+      onClick={onClick}
+      className="border-g-200 flex flex-col border-b border-t bg-transparent p-4"
+    >
       <div className="mb-1 flex flex-wrap gap-3">
         {tags && (
           <>

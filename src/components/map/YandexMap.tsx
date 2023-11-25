@@ -32,10 +32,15 @@ const RenderPlacemarks: React.FC<{
 const YandexMap: React.FC<{
   categories: Category[];
   mapCenter?: [number, number];
-}> = ({ categories, mapCenter }) => {
+  mapZoom?: number;
+}> = ({ categories, mapCenter, mapZoom }) => {
   return (
     <div className="h-[300px] w-full overflow-hidden rounded-b-xl lg:h-full lg:rounded-b-none lg:rounded-r-xl">
-      <Map width="100%" height="100%" state={{ center: mapCenter, zoom: 9 }}>
+      <Map
+        width="100%"
+        height="100%"
+        state={{ center: mapCenter, zoom: mapZoom }}
+      >
         <GeolocationControl options={{ float: 'right' }} />
         <ZoomControl options={{ position: { right: 10, bottom: 40 } }} />
         {categories.map((category) => (

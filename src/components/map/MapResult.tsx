@@ -1,9 +1,21 @@
 import { Category } from '../../types';
 import MapResultItem from './MapResultItem';
 
-const MapResult: React.FC<{
+interface Props {
   categories: Category[];
-}> = ({ categories }) => {
+  setMapCenter: React.Dispatch<React.SetStateAction<[number, number]>>;
+  setMapZoom: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const MapResult: React.FC<Props> = ({
+  categories,
+  setMapCenter,
+  setMapZoom,
+}) => {
+  const handleClick = (coords: [number, number]) => {
+    setMapCenter(coords);
+    setMapZoom(15);
+  };
   return (
     <div>
       <p className="mb-2 ml-4 text-base">
@@ -23,6 +35,7 @@ const MapResult: React.FC<{
               category={item.category}
               description={item.description}
               colorText={item.colorText}
+              onClick={() => handleClick(item.coords)}
             />
           )),
         )}
