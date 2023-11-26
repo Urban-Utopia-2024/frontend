@@ -22,7 +22,7 @@ function RequestsPage() {
             }  text-base`}
             onClick={() => setActiveTab(Tabs.APPLY)}
           >
-            Аккаунт
+            Подать заявку
           </div>
           <div
             className={`rounded-lg px-5 py-4 ${
@@ -30,7 +30,7 @@ function RequestsPage() {
             } text-base`}
             onClick={() => setActiveTab(Tabs.HISTORY)}
           >
-            Пароль
+            История заявок
           </div>
         </aside>
         {isApply && <NewRequest />}
