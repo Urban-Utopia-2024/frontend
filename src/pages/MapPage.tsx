@@ -9,6 +9,16 @@ import { CategoryType } from '../types/enum';
 import { Category } from '../types';
 
 function MapPage() {
+  const targetMap = React.useRef<HTMLDivElement>(null);
+
+  const handleScrollToMap = () => {
+    if (targetMap.current) {
+      targetMap.current.scrollIntoView({
+        behavior: 'smooth',
+      });
+    }
+  };
+
   // Центр карты
   const [mapCenter, setMapCenter] = React.useState<[number, number]>([
     56.8331934833199, 60.61239460156242,
@@ -76,7 +86,7 @@ function MapPage() {
     },
     {
       id: CategoryType.EVENT,
-      name: 'Активности',
+      name: 'События',
       icon: <ActivityIcon />,
       color: 'bg-blue-100',
       preset: 'islands#blueClusterIcons',
@@ -184,7 +194,7 @@ function MapPage() {
                       selectedCategories.some((c) => c.id === cat.id)
                         ? cat.color
                         : 'bg-gray-200'
-                    } mb-1 flex min-h-[48px] w-[48px] items-center justify-center rounded-lg p-2`}
+                    } mb-1 flex min-h-[48px] w-[48px] items-center justify-center rounded-lg`}
                   >
                     {cat.icon}
                   </div>
@@ -199,13 +209,16 @@ function MapPage() {
             categories={selectedCategories}
             setMapCenter={setMapCenter}
             setMapZoom={setMapZoom}
+            scrollToMap={handleScrollToMap}
           />
         </div>
-        <YandexMap
-          categories={selectedCategories}
-          mapCenter={mapCenter}
-          mapZoom={mapZoom}
-        />
+        <div className="h-full w-full" ref={targetMap}>
+          <YandexMap
+            categories={selectedCategories}
+            mapCenter={mapCenter}
+            mapZoom={mapZoom}
+          />
+        </div>
       </div>
     </YMaps>
   );

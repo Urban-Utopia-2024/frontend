@@ -45,9 +45,10 @@ const YandexMap: React.FC<{
         <ZoomControl options={{ position: { right: 10, bottom: 40 } }} />
         {categories.map((category) => (
           <RenderPlacemarks
-            items={category.items}
-            preset={category.preset}
-            marker={category.marker}
+            key={category.id}
+            items={category.items as EventMap[]}
+            preset={category.preset as string}
+            marker={category.marker as string}
           />
         ))}
       </Map>

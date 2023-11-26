@@ -493,3 +493,22 @@ h3 {
   border-color: theme('colors.amber.300', #fcd34d);
   color: theme('colors.gray.800', #1f2937);
 }
+
+.ant-form-vertical .ant-form-item-label {
+  padding: 0;
+}
+
+.ant-form-item {
+  margin-bottom: 0;
+}
+
+.ant-btn-default:not(:disabled):not(.ant-btn-disabled):hover {
+  border-color: theme('colors.amber.300', #fcd34d);
+  color: theme('colors.gray.800', #1f2937);
+}
+
+
+.navigation a.active {
+  @apply text-blue-600;
+  font-weight: 700;
+}

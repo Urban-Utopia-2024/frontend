@@ -9,6 +9,7 @@ import Tablet from './images/Tablet';
 
 import map from './images/map.jpg';
 import skyscrapers from './images/skyscrapers.jpg';
+import photo from './images/photo.png';
 
 export {
   ActivityIcon,
@@ -21,4 +22,5 @@ export {
   Tablet,
   map,
   skyscrapers,
+  photo,
 };
