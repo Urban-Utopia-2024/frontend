@@ -7,7 +7,12 @@ const MainPage = lazy(() => import('./pages/MainPage.tsx'));
 const MapPage = lazy(() => import('./pages/MapPage.tsx'));
 const NewsPage = lazy(() => import('./pages/NewsPage.tsx'));
 const RequestsPage = lazy(() => import('./pages/RequestsPage.tsx'));
-const AuthPage = lazy(() => import('./pages/AuthPage.tsx'));
+const LoginPage = lazy(() => import('./components/EntryForm.tsx'));
+const RegPage = lazy(() => import('./components/RegistrationForm.tsx'));
+const ResetPasswordPage = lazy(
+  () => import('./components/PasswordResetForm.tsx'),
+);
+const ProfilePage = lazy(() => import('./pages/ProfilePage.tsx'));
 
 const router = createBrowserRouter([
   {
@@ -28,20 +33,24 @@ const router = createBrowserRouter([
         element: <NewsPage />,
       },
       {
+        path: Routes.PROFILE,
+        element: <ProfilePage />,
+      },
+      {
         path: Routes.REQUESTS,
         element: <RequestsPage />,
       },
       {
         path: Routes.LOGIN,
-        element: <AuthPage />,
+        element: <LoginPage />,
       },
       {
         path: Routes.REGISTER,
-        element: <AuthPage />,
+        element: <RegPage />,
       },
       {
         path: Routes.RESET,
-        element: <AuthPage />,
+        element: <ResetPasswordPage />,
       },
     ],
   },
