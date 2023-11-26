@@ -1,10 +1,11 @@
 import { lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import { Routes } from './constants/routes.ts';
+import MapPage from './pages/MapPage.tsx';
 
 const App = lazy(() => import('./App.tsx'));
 const MainPage = lazy(() => import('./pages/MainPage.tsx'));
-const MapPage = lazy(() => import('./pages/MapPage.tsx'));
+// const MapPage = lazy(() => import('./pages/MapPage.tsx'));
 const NewsPage = lazy(() => import('./pages/NewsPage.tsx'));
 const RequestsPage = lazy(() => import('./pages/RequestsPage.tsx'));
 const AuthPage = lazy(() => import('./pages/AuthPage.tsx'));
