@@ -2,6 +2,7 @@ import { lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import { Routes } from './constants/routes.ts';
 import MapPage from './pages/MapPage.tsx';
+import NewsItemPage from './pages/NewsItemPage.tsx';
 
 const App = lazy(() => import('./App.tsx'));
 const MainPage = lazy(() => import('./pages/MainPage.tsx'));
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: Routes.NEWS,
         element: <NewsPage />,
+      },
+      {
+        path: Routes.NEWS_ITEM,
+        element: <NewsItemPage />,
       },
       {
         path: Routes.PROFILE,

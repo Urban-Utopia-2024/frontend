@@ -46,9 +46,9 @@ const YandexMap: React.FC<{
         {categories.map((category) => (
           <RenderPlacemarks
             key={category.id}
-            items={category.items}
-            preset={category.preset}
-            marker={category.marker}
+            items={category.items as EventMap[]}
+            preset={category.preset as string}
+            marker={category.marker as string}
           />
         ))}
       </Map>
