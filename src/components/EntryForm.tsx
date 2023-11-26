@@ -1,6 +1,6 @@
 import { Button, Form, Input } from 'antd';
 import { ValidateErrorEntity } from 'rc-field-form/es/interface';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Routes } from '../constants/routes';
 import { Login } from '../store/auth/types';
 import { useAppDispatch } from '../store';
@@ -13,9 +13,9 @@ type FieldType = {
 
 function EntryForm() {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const onFinish = (values: Login) => {
-    console.log(values);
-    dispatch(signInUser(values));
+    dispatch(signInUser(values)).then(() => navigate(Routes.PROFILE));
   };
 
   const onFinishFailed = (errorInfo: ValidateErrorEntity<Login>) => {

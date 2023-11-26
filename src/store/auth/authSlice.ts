@@ -3,6 +3,7 @@ import { RootState } from '..';
 import { AuthState } from './types';
 import {
   buildConfirmEmail,
+  buildGetUser,
   buildGetUserById,
   buildLogOut,
   buildRegistration,
@@ -62,6 +63,7 @@ const authSlice = createSlice({
     buildLogOut(builder);
     buildGetUserById(builder);
     buildConfirmEmail(builder);
+    buildGetUser(builder);
   },
 });
 

@@ -5,6 +5,7 @@ import {
   registration,
   signInUser,
   confirmEmail,
+  getUser,
 } from './authActions';
 import { AuthState } from './types';
 
@@ -85,6 +86,24 @@ export const buildGetUserById = (builder: ActionReducerMapBuilder<AuthState>) =>
       state.userError = null;
     })
     .addCase(getUserById.rejected, (state) => {
+      state.userStatus = 'error';
+      state.isAuth = false;
+      state.user = null;
+      state.userError = 'Sorry, something went wrong';
+    });
+
+export const buildGetUser = (builder: ActionReducerMapBuilder<AuthState>) =>
+  builder
+    .addCase(getUser.pending, (state) => {
+      state.userStatus = 'pending';
+    })
+    .addCase(getUser.fulfilled, (state, action) => {
+      state.userStatus = 'success';
+      state.user = action.payload;
+      state.isAuth = true;
+      state.userError = null;
+    })
+    .addCase(getUser.rejected, (state) => {
       state.userStatus = 'error';
       state.isAuth = false;
       state.user = null;

@@ -24,12 +24,11 @@ export const signInUser = createAsyncThunk(
         `${BASE_URL}token/create/`,
         body,
       );
-      console.log(response);
       const auth_token = response.data.token;
       const id = response.data.user_id;
       dispatch(setUserId(id));
       setToken(auth_token);
-      return dispatch(getUserById(id));
+      return dispatch(getUser());
     } catch (e) {
       return rejectWithValue(e);
     }
@@ -62,14 +61,28 @@ export const logOut = createAsyncThunk(
   },
 );
 
-export const getUserById = createAsyncThunk(
+export const getUser = createAsyncThunk(
   'auth/getUser',
+  async (_, { rejectWithValue }) => {
+    try {
+      const token = getToken();
+      const res = await axios.get<void, User>(`${BASE_URL}users/me`, {
+        headers: { Authorization: `Token ${token?.slice(1, -1)}` },
+      });
+      return res;
+    } catch (e) {
+      return rejectWithValue(e);
+    }
+  },
+);
+
+export const getUserById = createAsyncThunk(
+  'auth/getUserById',
   async (id: string, { rejectWithValue }) => {
     try {
       const token = getToken();
-      console.log(token);
       const res = await axios.get<void, User>(`${BASE_URL}users/${id}/`, {
-        headers: { Authorization: `Token ${token}` },
+        headers: { Authorization: `Token ${token?.slice(1, -1)}` },
       });
       return res;
     } catch (e) {
