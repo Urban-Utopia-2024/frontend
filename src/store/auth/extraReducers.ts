@@ -99,7 +99,7 @@ export const buildGetUser = (builder: ActionReducerMapBuilder<AuthState>) =>
     })
     .addCase(getUser.fulfilled, (state, action) => {
       state.userStatus = 'success';
-      state.user = action.payload;
+      state.user = action.payload.data;
       state.isAuth = true;
       state.userError = null;
     })

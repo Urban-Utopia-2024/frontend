@@ -1,6 +1,6 @@
 import { Button, Form, Input } from 'antd';
 import { ValidateErrorEntity } from 'rc-field-form/es/interface';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Routes } from '../../constants/routes';
 import ArrowLeft from '../../assets/icons/ArrowLeft';
 import { useAppDispatch } from '../../store';
@@ -8,10 +8,13 @@ import { registration } from '../../store/auth/authActions';
 
 function ModalReg() {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const onFinish = (values: { secrete_code: string }) => {
-    console.log(values);
-    dispatch(registration(values.secrete_code));
+    dispatch(registration(values.secrete_code)).then((data) => {
+      console.log(data);
+      navigate(Routes.PROFILE);
+    });
   };
 
   const onFinishFailed = (

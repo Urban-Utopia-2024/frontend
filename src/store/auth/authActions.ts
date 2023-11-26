@@ -15,6 +15,7 @@ interface Token {
   is_admin: boolean;
 }
 type TokenResponse = AxiosResponse<Token>;
+type UserResponse = AxiosResponse<User>;
 
 export const signInUser = createAsyncThunk(
   'auth/signin',
@@ -66,9 +67,10 @@ export const getUser = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const token = getToken();
-      const res = await axios.get<void, User>(`${BASE_URL}users/me`, {
+      const res = await axios.get<void, UserResponse>(`${BASE_URL}users/me`, {
         headers: { Authorization: `Token ${token?.slice(1, -1)}` },
       });
+      console.log(res.data);
       return res;
     } catch (e) {
       return rejectWithValue(e);

@@ -1,12 +1,16 @@
 import { Button, Form, Input } from 'antd';
+import { useAppSelector } from '../store';
+import { selectCurrentUser } from '../store/auth/authSlice';
 
 type FieldType = {
   first_name?: string;
   last_name?: string;
-  surname?: string;
+  mid_name?: string;
 };
 
 function UserNameForm() {
+  const user = useAppSelector(selectCurrentUser);
+
   return (
     <Form
       name="userdata"
@@ -14,6 +18,11 @@ function UserNameForm() {
       className="flex items-end gap-8"
       autoComplete="off"
       requiredMark={false}
+      initialValues={{
+        first_name: user?.first_name || '',
+        last_name: user?.last_name || '',
+        mid_name: user?.mid_name || '',
+      }}
     >
       <div className="flex flex-wrap gap-3">
         <Form.Item<FieldType>
@@ -46,7 +55,7 @@ function UserNameForm() {
 
         <Form.Item<FieldType>
           label={<p className="font-nunito text-sm text-[#242424]">Отчество</p>}
-          name="surname"
+          name="mid_name"
           className="w-[16.25rem]"
           rules={[
             {

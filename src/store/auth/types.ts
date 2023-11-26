@@ -11,7 +11,13 @@ export interface Login {
   password: string;
 }
 
-export type User = Omit<Registry, 'password'>;
+export interface User {
+  email: string;
+  password: string;
+  first_name: string;
+  last_name: string;
+  mid_name?: string;
+}
 
 export interface AuthState {
   user: User | null;
