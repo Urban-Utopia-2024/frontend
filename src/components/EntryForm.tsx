@@ -3,6 +3,8 @@ import { ValidateErrorEntity } from 'rc-field-form/es/interface';
 import { Link } from 'react-router-dom';
 import { Routes } from '../constants/routes';
 import { Login } from '../store/auth/types';
+import { useAppDispatch } from '../store';
+import { signInUser } from '../store/auth/authActions';
 
 type FieldType = {
   email?: string;
@@ -10,8 +12,10 @@ type FieldType = {
 };
 
 function EntryForm() {
+  const dispatch = useAppDispatch();
   const onFinish = (values: Login) => {
     console.log(values);
+    dispatch(signInUser(values));
   };
 
   const onFinishFailed = (errorInfo: ValidateErrorEntity<Login>) => {

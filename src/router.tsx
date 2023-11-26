@@ -9,6 +9,7 @@ const NewsPage = lazy(() => import('./pages/NewsPage.tsx'));
 const RequestsPage = lazy(() => import('./pages/RequestsPage.tsx'));
 const LoginPage = lazy(() => import('./components/EntryForm.tsx'));
 const RegPage = lazy(() => import('./components/RegistrationForm.tsx'));
+const ApprovePage = lazy(() => import('./components/ui/ModalReg.tsx'));
 const ResetPasswordPage = lazy(
   () => import('./components/PasswordResetForm.tsx'),
 );
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: Routes.RESET,
         element: <ResetPasswordPage />,
+      },
+      {
+        path: Routes.APPROVE,
+        element: <ApprovePage />,
       },
     ],
   },

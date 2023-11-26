@@ -1,12 +1,18 @@
 import { Button, Form, Input } from 'antd';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Routes } from '../constants/routes';
 import { ValidateErrorEntity } from 'rc-field-form/es/interface';
 import { Registry } from '../store/auth/types';
+import { useAppDispatch } from '../store';
+import { confirmEmail } from '../store/auth/authActions';
 
 function RegistrationForm() {
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
   const onFinish = (values: Registry) => {
-    console.log(values);
+    dispatch(confirmEmail(values));
+    navigate(Routes.APPROVE);
   };
 
   const onFinishFailed = (errorInfo: ValidateErrorEntity<Registry>) => {

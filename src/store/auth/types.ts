@@ -12,3 +12,28 @@ export interface Login {
 }
 
 export type User = Omit<Registry, 'password'>;
+
+export interface AuthState {
+  user: User | null;
+  userId: number | null;
+  data: Registry | null;
+  isAuth: boolean;
+
+  confirmeStatus: 'initial' | 'pending' | 'success' | 'error';
+  confirmeError: string | null | unknown;
+
+  signInStatus: 'initial' | 'pending' | 'success' | 'error';
+  signInError: string | null | unknown;
+
+  signUpStatus: 'initial' | 'pending' | 'success' | 'error';
+  signUpError: string | null | unknown;
+
+  logOutStatus: 'initial' | 'pending' | 'success' | 'error';
+  logOutError: string | null | unknown;
+
+  userStatus: 'initial' | 'pending' | 'success' | 'error';
+  userError: string | null | unknown;
+
+  userUpdateStatus: 'initial' | 'pending' | 'success' | 'error';
+  userUpdateError: string | null | unknown;
+}

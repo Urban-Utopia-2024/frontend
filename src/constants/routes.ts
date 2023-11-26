@@ -7,4 +7,5 @@ export enum Routes {
   LOGIN = '/login',
   REGISTER = '/register',
   RESET = '/password/reset',
+  APPROVE = '/register/code',
 }
