@@ -1,3 +1,12 @@
 export enum Routes {
-  HOME = "/",
+  HOME = '/',
+  MAP = '/map',
+  NEWS = '/news',
+  NEWS_ITEM = '/news/:slug',
+  REQUESTS = '/requests',
+  PROFILE = '/profile',
+  LOGIN = '/login',
+  REGISTER = '/register',
+  RESET = '/password/reset',
+  APPROVE = '/register/code',
 }
