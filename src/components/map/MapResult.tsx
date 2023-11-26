@@ -5,14 +5,17 @@ interface Props {
   categories: Category[];
   setMapCenter: React.Dispatch<React.SetStateAction<[number, number]>>;
   setMapZoom: React.Dispatch<React.SetStateAction<number>>;
+  scrollToMap: () => void;
 }
 
 const MapResult: React.FC<Props> = ({
   categories,
   setMapCenter,
   setMapZoom,
+  scrollToMap,
 }) => {
   const handleClick = (coords: [number, number]) => {
+    scrollToMap();
     setMapCenter(coords);
     setMapZoom(15);
   };
