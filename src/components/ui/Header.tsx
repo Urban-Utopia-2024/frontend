@@ -1,7 +1,7 @@
 import { Button } from 'antd';
 import Logo from '../../assets/icons/Logo';
 import LoginIcon from '../../assets/icons/LoginIcon';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, NavLink } from 'react-router-dom';
 import { Routes } from '../../constants/routes';
 
 function Header() {
