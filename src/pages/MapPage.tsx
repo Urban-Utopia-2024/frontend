@@ -212,7 +212,7 @@ function MapPage() {
             scrollToMap={handleScrollToMap}
           />
         </div>
-        <div ref={targetMap}>
+        <div className="h-full w-full" ref={targetMap}>
           <YandexMap
             categories={selectedCategories}
             mapCenter={mapCenter}
