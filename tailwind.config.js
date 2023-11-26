@@ -5,6 +5,7 @@ export default {
     extend: {
       fontFamily: {
         gilroy: ['Gilroy Regular', 'sans-serif'],
+        nunito: ['Nunito Regular', 'sans-serif'],
       },
     },
   },
