@@ -86,7 +86,7 @@ function MapPage() {
     },
     {
       id: CategoryType.EVENT,
-      name: 'Активности',
+      name: 'События',
       icon: <ActivityIcon />,
       color: 'bg-blue-100',
       preset: 'islands#blueClusterIcons',

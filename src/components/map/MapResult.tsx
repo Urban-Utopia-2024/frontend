@@ -29,19 +29,22 @@ const MapResult: React.FC<Props> = ({
         результатов
       </p>
       <div className="flex max-h-[450px] flex-col overflow-y-auto">
-        {categories.map((category) =>
-          category.items.map((item) => (
-            <MapResultItem
-              key={item.id}
-              title={item.title}
-              tags={item.tags}
-              category={item.category}
-              description={item.description}
-              colorText={item.colorText}
-              onClick={() => handleClick(item.coords)}
-            />
-          )),
-        )}
+        {categories &&
+          categories.map(
+            (category) =>
+              category.items &&
+              category.items.map((item) => (
+                <MapResultItem
+                  key={item.id}
+                  title={item.title}
+                  tags={item.tags}
+                  category={item.category}
+                  description={item.description}
+                  colorText={item.colorText}
+                  onClick={() => handleClick(item.coords)}
+                />
+              )),
+          )}
       </div>
     </div>
   );
