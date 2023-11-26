@@ -1,11 +1,16 @@
-import { configureStore } from "@reduxjs/toolkit"
-import { rootReducer } from "./rootReducer"
-import api from "./api"
+import { configureStore } from '@reduxjs/toolkit';
+import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
+import authReducer from './auth/authSlice';
 
 const store = configureStore({
-  reducer: { rootReducer, [api.reducerPath]: api.reducer },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(api.middleware),
-})
+  reducer: { auth: authReducer },
+});
 
-export default store
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
+
+type DispatchFunc = () => AppDispatch;
+export const useAppDispatch: DispatchFunc = useDispatch;
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
+
+export default store;
