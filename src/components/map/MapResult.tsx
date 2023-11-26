@@ -22,10 +22,10 @@ const MapResult: React.FC<Props> = ({
   return (
     <div>
       <p className="mb-2 ml-4 text-base">
-        {categories.reduce(
-          (count, category) => count + category.items.length,
-          0,
-        )}{' '}
+        {categories.reduce((count, category) => {
+          if (!category.items) return count + 0;
+          return count + category.items.length;
+        }, 0)}{' '}
         результатов
       </p>
       <div className="flex max-h-[450px] flex-col overflow-y-auto">
